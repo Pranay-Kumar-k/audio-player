@@ -76,3 +76,73 @@ const jumpAudio = (e) => {
 
 audio.addEventListener("timeupdate", updateAudioBars);
 container.addEventListener("click", jumpAudio);
+
+// Static Tag 1
+
+ctx.fillStyle = "green";
+ctx.fillRect(100, 0, 120, 20);
+ctx.fillStyle = "white";
+ctx.font = "17px bold";
+ctx.fillText("Introduction", 120, 15);
+ctx.fillStyle = "green";
+ctx.fillRect(170, 20, 4, 156);
+ctx.beginPath();
+ctx.arc(172, 170, 10, 0, Math.PI * 2, true);
+ctx.fill();
+
+
+// Static Tag 2
+
+ctx.fillStyle = "teal";
+ctx.fillRect(320, 0, 80, 20);
+ctx.fillStyle = "white";
+ctx.font = "17px serif";
+ctx.fillText("one_six", 330, 15);
+ctx.fillStyle = "teal";
+ctx.fillRect(360, 20, 4, 156);
+ctx.beginPath(); 
+ctx.arc(363, 170, 10, 0, Math.PI * 2, true);
+ctx.moveTo(110, 75);
+ctx.fill();
+
+// Static Tag 3
+
+ctx.fillStyle = "blue";
+ctx.fillRect(980, 60, 80, 20);
+ctx.fillStyle = "white";
+ctx.font = "17px serif";
+ctx.fillText("Profile", 1000, 75);
+ctx.fillStyle = "blue";
+ctx.fillRect(1015, 80, 4, 100);
+ctx.beginPath();
+ctx.arc(1018, 170, 10, 0, Math.PI * 2, true);
+ctx.moveTo(110, 75);
+ctx.fill();
+
+// Static Tag 4
+
+ctx.fillStyle = "#9A6C68";
+ctx.fillRect(960, 25, 215, 20);
+ctx.fillStyle = "white";
+ctx.font = "17px serif";
+ctx.fillText("Rapport Building - Empathy", 975, 40);
+ctx.fillStyle = "#9A6C68";
+ctx.fillRect(1100, 45, 4, 130);
+ctx.beginPath();
+ctx.arc(1103, 170, 10, 0, Math.PI * 2, true);
+ctx.moveTo(110, 75);
+ctx.fill();
+
+// Static Tag 5
+
+ctx.fillStyle = "#69A548";
+ctx.fillRect(1010, 0, 195, 20);
+ctx.fillStyle = "white";
+ctx.font = "17px serif";
+ctx.fillText("Rapport Building - Energy", 1015, 15);
+ctx.fillStyle = "#69A548";
+ctx.fillRect(1180, 17, 4, 150);
+ctx.beginPath();
+ctx.arc(1183, 170, 10, 0, Math.PI * 2, true);
+ctx.moveTo(110, 75);
+ctx.fill();
