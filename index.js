@@ -64,6 +64,10 @@ const playAudioViaBars = (time) => {
 const updateAudioBars = (audioElement) => {
     const {duration, currentTime} = audioElement.srcElement;
     playAudioViaBars(currentTime * (1250/duration));
+    
+    if(audio.currentTime === audio.duration) {
+        pauseAudio();
+    }
 }
 
 // Jump to a particular point of duration in audio by clicking on the bar
