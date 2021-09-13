@@ -2,14 +2,15 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 const audio = document.getElementById("audio");
 const button = document.getElementById("button");
-const buttonClassList = button.querySelector("i.fas").classList
+const buttonClassList = button.querySelector("i.fas").classList;
 const container = document.getElementById("container");
+const width = container.clientWidth;
 
 let audioBars = [-30];
-var is_playing = false;
+let is_playing = false;
 // function used to draw the bars in the audio player visual
 const drawBars = () => {
-
+// Gets all the random values from 1 to 200 including 200
     for(var i=0; i<160; i++) {
         audioBars.push(Math.floor(Math.random() * 200) + 1);
     }
@@ -19,7 +20,7 @@ const drawBars = () => {
     ctx.fillStyle = "gainsboro";
     for (let i = 0; i < audioBars.length; i++) {
         let h = audioBars[i];
-        ctx.fillRect(X, 150 - h / 4, width, h+30);
+        ctx.fillRect(X, 160 - h / 4, width, h+30);
         X += width + 3;
     }
     return audioBars;
@@ -54,7 +55,7 @@ const playAudioViaBars = (time) => {
     let X = 0;
     for (let i = 0; i < audioBars.length; i++) {
         let h = audioBars[i];
-        ctx.fillRect(X, 150 - h / 4, width, h+30);
+        ctx.fillRect(X, 160 - h / 4, width, h+30);
         X += width + 3;
         X < time ? (ctx.fillStyle = "red") : (ctx.fillStyle = "gainsboro");
     }
@@ -63,7 +64,7 @@ const playAudioViaBars = (time) => {
 // Updating audio bars with color filled to track the duration of song/audio
 const updateAudioBars = (audioElement) => {
     const {duration, currentTime} = audioElement.srcElement;
-    playAudioViaBars(currentTime * (1250/duration));
+    playAudioViaBars(currentTime * (width/duration));
     
     if(audio.currentTime === audio.duration) {
         pauseAudio();
@@ -72,7 +73,6 @@ const updateAudioBars = (audioElement) => {
 
 // Jump to a particular point of duration in audio by clicking on the bar
 const jumpAudio = (e) => {
-    const width = container.clientWidth;
     const click = e.offsetX;
     const duration = audio.duration;
     audio.currentTime = (click / width) * duration;
@@ -88,6 +88,7 @@ ctx.fillRect(100, 0, 120, 20);
 ctx.fillStyle = "white";
 ctx.font = "17px bold";
 ctx.fillText("Introduction", 120, 15);
+
 ctx.fillStyle = "green";
 ctx.fillRect(170, 20, 4, 156);
 ctx.beginPath();
@@ -102,6 +103,7 @@ ctx.fillRect(320, 0, 80, 20);
 ctx.fillStyle = "white";
 ctx.font = "17px serif";
 ctx.fillText("one_six", 330, 15);
+
 ctx.fillStyle = "teal";
 ctx.fillRect(360, 20, 4, 156);
 ctx.beginPath(); 
@@ -116,6 +118,7 @@ ctx.fillRect(980, 60, 80, 20);
 ctx.fillStyle = "white";
 ctx.font = "17px serif";
 ctx.fillText("Profile", 1000, 75);
+
 ctx.fillStyle = "blue";
 ctx.fillRect(1015, 80, 4, 100);
 ctx.beginPath();
@@ -130,6 +133,7 @@ ctx.fillRect(960, 25, 215, 20);
 ctx.fillStyle = "white";
 ctx.font = "17px serif";
 ctx.fillText("Rapport Building - Empathy", 975, 40);
+
 ctx.fillStyle = "#9A6C68";
 ctx.fillRect(1100, 45, 4, 130);
 ctx.beginPath();
@@ -144,6 +148,7 @@ ctx.fillRect(1010, 0, 195, 20);
 ctx.fillStyle = "white";
 ctx.font = "17px serif";
 ctx.fillText("Rapport Building - Energy", 1015, 15);
+
 ctx.fillStyle = "#69A548";
 ctx.fillRect(1180, 17, 4, 150);
 ctx.beginPath();
